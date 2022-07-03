@@ -9,7 +9,7 @@ import tools as tl
 
 class TestCheckConseqNums(unittest.TestCase):
 
-    def check_correct_output(self):
+    def test_correct_output(self):
         arr1 = np.arange(10)
         arr2 = np.array([1, 1, 1, 3, 4, 5])
         arr3 = np.array([1, 1, 1, 1, 1, 1])
