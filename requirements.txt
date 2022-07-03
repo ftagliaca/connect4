@@ -5,6 +5,7 @@
 # conda install --file requirements.txt
 # -----------------------------------------
 
+autopep8
 flake8
 mypy
 numpy
