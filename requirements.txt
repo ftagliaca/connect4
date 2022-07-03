@@ -1,7 +1,14 @@
+# ---------------------------------------------
+# Run the following in the terminal you normally run pip in:
+# pip install -r requirements.txt
+#         ------ OR -------
+# conda install --file requirements.txt
+# -----------------------------------------
 
 flake8
 mypy
 numpy
 pre-commit
+pygame
 
 pytest
