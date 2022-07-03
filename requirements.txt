@@ -1,6 +1,6 @@
-numpy
 
 flake8
+numpy
+pre-commit
 
 pytest
-
