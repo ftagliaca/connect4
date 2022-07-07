@@ -119,6 +119,16 @@ class TestGame(unittest.TestCase):
             for j, num in enumerate(row):
                 self.assertEqual(self.game.check_win(i, j), should_win[i, j])
 
+    def test_check_draw(self):
+        self.game.board = np.zeros((6, 7))
+        self.assertFalse(self.game.check_draw())
+
+        self.game.board[:, :3] = 1
+        self.assertFalse(self.game.check_draw())
+
+        self.game.board = np.ones_like(self.game.board)
+        self.assertTrue(self.game.check_draw())
+
     @patch('numpy.random.randint')
     @patch('game.Game.place_token')
     def test_make_move_correct_output(self, mock_place_token, mock_random):

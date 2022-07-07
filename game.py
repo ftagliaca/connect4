@@ -64,6 +64,12 @@ class Game:
 
         return row_win or col_win or diag1_win or diag2_win
 
+    def check_draw(self):
+        """
+        Check if the game is a draw
+        """
+        return np.all(self.board != 0)
+
     def make_move(self) -> tuple[int, int]:
         """
         Make a move
