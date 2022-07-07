@@ -25,6 +25,9 @@ class TestGame(unittest.TestCase):
         for col_n, last_idx in enumerate(lst_idxs):
             self.assertEqual(self.game.get_first_free_idx(col_n), last_idx + 6)
 
+        self.game.board[:, -1] = 1
+        self.assertEqual(self.game.get_first_free_idx(6), -1)
+
     @patch('game.Game.check_win')
     @patch('game.Game.get_first_free_idx')
     def test_place_token(self, mock_get_first_free_idx, mock_check_win):
