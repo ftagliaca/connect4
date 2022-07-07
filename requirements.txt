@@ -6,6 +6,7 @@
 # -----------------------------------------
 
 autopep8
+codecov
 flake8
 mypy
 numpy
@@ -13,3 +14,5 @@ pre-commit
 pygame
 
 pytest
+pytest-cov
+requests
