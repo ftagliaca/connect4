@@ -10,6 +10,7 @@ codecov
 flake8
 mypy
 numpy
+pep8-naming
 pre-commit
 pygame
 
