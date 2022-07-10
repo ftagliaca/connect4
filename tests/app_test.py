@@ -201,7 +201,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(mock_reset_game.call_count, 1)
         self.assertEqual(mock_mouse2idx.call_count, 3)
         self.assertEqual(mock_place_token.call_count, 1)
-        self.assertEqual(self.app.turn, 1)
+        self.assertEqual(self.app.turn, 2)
 
         self.running = True
         self.app.turn = 1
