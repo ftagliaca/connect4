@@ -102,9 +102,11 @@ class App:
             elif event.type == pg.MOUSEBUTTONUP:
                 select_pos = self.mouse2idx(pg.mouse.get_pos())
                 if self.turn == 1 and select_pos != (-1, -1):
-                    self.game.place_token(select_pos[1], 1)
+                    token_loc = self.game.place_token(select_pos[1], 1)
                     if self.game.winner == 1:
                         self.turn = 0
+                    elif token_loc != (-1, -1):
+                        self.turn = 2
 
     def draw_grid(self):
         for vertical_idx in range(self.game.board.shape[1]+1):
