@@ -13,9 +13,11 @@ To install this app you can follow the following steps:
 
 2. Set up a virtual environment (optional)
 
-   This project uses python 3.10, you can create a virtual environment using venv, virtualenv, or anaconda (not recommended).
+   This project uses python 3.10, you can create and activate a virtual environment using venv, virtualenv, or anaconda (not recommended).
 
    `virtualenv -p python3.10 venv`
+
+   `source venv/bin/activate`
 
 3. Install the required packages
 
