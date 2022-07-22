@@ -6,23 +6,42 @@ import tools as tl
 
 
 class Game:
+    """Game class for the game 'backend'
+    """
 
     def __init__(self):
+        """Initialize the game with a board full of zeros and no winner
+        """
+
         self.board = np.zeros((6, 7))
         self.winner = 0
 
     def get_first_free_idx(self, col_n: int) -> int:
+        """Function to get the first free index of a given column
+
+        Args:
+            col_n (int): The column number to check
+
+        Returns:
+            int: the first free index of the column (0 is the top row)
         """
-        Get the first free index in the column
-        """
+
         locations = np.where(self.board[:, col_n] == 0)[0]
         if len(locations) == 0:
             return -1
         return locations[-1]
 
     def place_token(self, col_n: int, token_id: int) -> tuple[int, int]:
-        """
-        Place a token in the indicated column
+        """Place a token in the indicated column, calls get_first_free_idx
+        to get the first free index of the given column
+        Calls check_win to check if the given token has won
+
+        Args:
+            col_n (int): The column number
+            token_id (int): The token ID to place
+
+        Returns:
+            tuple[int, int]: The location where the token was placed
         """
         idx = self.get_first_free_idx(col_n)
         if idx != -1:
@@ -34,8 +53,16 @@ class Game:
         return -1, -1
 
     def check_win(self, row_n: int, col_n: int) -> bool:
-        """
-        Check if the token has won
+        """Check if the token has won
+        Uses the tools.check_conseq_nums function to check if there are 4 consequtive numbers in the row,
+        column or either diagonal
+
+        Args:
+            row_n (int): The row number of the token to check
+            col_n (int): The column number of the token to check
+
+        Returns:
+            bool: Whether or not the given token has won
         """
 
         if self.board[row_n, col_n] == 0:
@@ -64,15 +91,21 @@ class Game:
 
         return row_win or col_win or diag1_win or diag2_win
 
-    def check_draw(self):
-        """
-        Check if the game is a draw
+    def check_draw(self) -> bool:
+        """Check if the game is a draw
+        (All the columns are full)
+
+        Returns:
+            bool: true if the game is a draw
         """
         return np.all(self.board != 0)
 
     def make_move(self) -> tuple[int, int]:
-        """
-        Make a move
+        """Helper function to place a token for the AI
+        Calls place_token to place a token in a random column
+
+        Returns:
+            tuple[int, int]: location of the placed token
         """
         row_n = -1
         while row_n == -1:

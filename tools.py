@@ -4,8 +4,15 @@ import numpy as np
 
 
 def check_conseq_nums(arr: np.ndarray, min_conseq: int) -> tuple[bool, int]:
-    """
-    Check if there are consecutive numbers in the array
+    """Helper function to check whether there are min_conseq consequtive numbers in the array
+
+    Args:
+        arr (np.ndarray): The array to check for consequtive numbers
+        min_conseq (int): The minimum number of consequtive numbers required
+
+    Returns:
+        tuple[bool, int]: Whether there are min_conseq consequtive numbers in the array
+                          and the ID of the number that is repeated min_conseq times (consecutively)
     """
 
     if arr.size < min_conseq:
